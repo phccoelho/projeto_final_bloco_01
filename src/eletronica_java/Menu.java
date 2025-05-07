@@ -24,7 +24,7 @@ public class Menu {
         //Informatica i1 = new Informatica(2, "Placa de Vídeo", 2, 560.67f, 2, "RX-560", "AMD");
         //i1.visualizar();
         
-        int opcao, codigo, tipo, quantidade;
+        int opcao, codigo, tipo, quantidade, quantVendida;
         String nome, categoria, material, fabricante, modelo;
         float preco;
         
@@ -39,7 +39,8 @@ public class Menu {
             System.out.println("|  3 - Buscar Produto por Código     |");
             System.out.println("|  4 - Atualizar Dados do Produto    |");
             System.out.println("|  5 - Apagar o Produto              |");
-            System.out.println("|  6 - Sair                          |");
+            System.out.println("|  6 - Venda do Produto              |");
+            System.out.println("|  7 - Sair                          |");
             System.out.println("|====================================|");
             System.out.println("| Entre com a opção desejada:        |");
             System.out.println("|====================================|");
@@ -47,7 +48,7 @@ public class Menu {
 
             opcao = leia.nextInt();
 
-            if (opcao == 6) {
+            if (opcao == 7) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nEletrônica GEN - Compre os melhores componentes aqui! ");
 				sobre();
 				leia.close();
@@ -62,7 +63,7 @@ public class Menu {
     				leia.skip("\\R");
     				nome = leia.nextLine();
 
-    				System.out.println("Digite o tipo do Produto (1 - COMP | 2 - INF:");
+    				System.out.println("Digite o tipo do Produto (1 - COMP | 2 - INF):");
     				tipo = leia.nextInt();
 
     				System.out.println("Digite o preço do Produto:");
@@ -157,6 +158,19 @@ public class Menu {
     				codigo = leia.nextInt();
 
     				produtos.deletar(codigo);
+                    keyPress();
+                    break;
+                case 6:
+                	System.out.println(Cores.TEXT_WHITE + "Venda de Produto\n\n");
+
+                    System.out.println("Digite o código do Produto: ");
+                    codigo = leia.nextInt();
+
+                    System.out.println("Digite a quantidade foi vendida: ");
+                    quantVendida = leia.nextInt();
+
+                    produtos.vender(codigo, quantVendida);
+                    
                     keyPress();
                     break;
                 default:
