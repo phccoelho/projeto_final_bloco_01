@@ -3,6 +3,8 @@ package eletronica_java;
 import java.io.IOException;
 import java.util.Scanner;
 
+import eletronica_java.model.Componentes;
+import eletronica_java.model.Informatica;
 import eletronica_java.util.Cores;
 
 public class Menu {
@@ -10,6 +12,13 @@ public class Menu {
     public static void main(String[] args) {
 
         Scanner leia = new Scanner(System.in);
+        
+        Componentes c1 = new Componentes(1, "Capacitor CWD", 1, 3.67f, 6, "Eletrolíticos", "Poliester");
+        c1.visualizar();
+        
+        Informatica i1 = new Informatica(2, "Placa de Vídeo", 2, 560.67f, 2, "RX-560", "AMD");
+        i1.visualizar();
+        
         int opcao = 0;
 
         while (true) {
